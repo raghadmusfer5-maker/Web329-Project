@@ -1,10 +1,8 @@
-       // Login Form Validation
-document.addEventListener('DOMContentLoaded', function() {
-    const loginForm = document.querySelector('form');
-    const emailInput = document.getElementById('email');
-    const passwordInput = document.getElementById('password');
+document.addEventListener('DOMContentLoaded', function () {
+
     
-    // Create error message elements
+    // COMMON VALIDATION FUNCTIONS
+    
     function createErrorElement(inputElement) {
         const errorDiv = document.createElement('div');
         errorDiv.className = 'error-message';
@@ -15,127 +13,142 @@ document.addEventListener('DOMContentLoaded', function() {
         inputElement.parentElement.appendChild(errorDiv);
         return errorDiv;
     }
-    
-    const emailError = createErrorElement(emailInput);
-    const passwordError = createErrorElement(passwordInput);
-    
-    // Email validation function
+
     function validateEmail(email) {
-        // Check if email contains @ and .
         const hasAt = email.includes('@');
         const hasDot = email.includes('.');
         const atIndex = email.indexOf('@');
         const dotIndex = email.lastIndexOf('.');
-        
-        // Make sure @ comes before . and there's text before @, between @ and ., and after .
+
         if (!hasAt || !hasDot) {
             return 'Email must contain @ and .';
         }
-        
-        if (atIndex > dotIndex) {
+
+        if (atIndex <= 0 || dotIndex <= atIndex + 1 || dotIndex === email.length - 1) {
             return 'Invalid email format';
         }
-        
-        if (atIndex === 0 || dotIndex === email.length - 1) {
-            return 'Invalid email format';
-        }
-        
-        if (dotIndex - atIndex <= 1) {
-            return 'Invalid email format';
-        }
-        
-        return null; // Valid
+
+        return null;
     }
-    
-    // Password validation function
+
     function validatePassword(password) {
         if (password.length < 8) {
             return 'Password must be at least 8 characters';
         }
-        
-        const hasUpperCase = /[A-Z]/.test(password);
-        const hasLowerCase = /[a-z]/.test(password);
-        const hasSpecialChar = /[!@#$%^&*(),.?":{}|<>]/.test(password);
-        
-        if (!hasUpperCase) {
+        if (!/[A-Z]/.test(password)) {
             return 'Password must contain at least one uppercase letter';
         }
-        
-        if (!hasLowerCase) {
+        if (!/[a-z]/.test(password)) {
             return 'Password must contain at least one lowercase letter';
         }
-        
-        if (!hasSpecialChar) {
+        if (!/[!@#$%^&*(),.?":{}|<>]/.test(password)) {
             return 'Password must contain at least one special character';
         }
-        
-        return null; // Valid
+        return null;
     }
-    
-    // Show error message
+
     function showError(errorElement, message) {
         errorElement.textContent = message;
         errorElement.style.display = 'block';
         errorElement.previousElementSibling.style.borderColor = '#d4a5a5';
     }
-    
-    // Hide error message
+
     function hideError(errorElement) {
         errorElement.style.display = 'none';
         errorElement.previousElementSibling.style.borderColor = '#e8d5c4';
     }
-    
-    // Real-time validation
-    emailInput.addEventListener('blur', function() {
-        const error = validateEmail(this.value);
-        if (error) {
-            showError(emailError, error);
-        } else {
-            hideError(emailError);
-        }
-    });
-    
-    passwordInput.addEventListener('blur', function() {
-        const error = validatePassword(this.value);
-        if (error) {
-            showError(passwordError, error);
-        } else {
-            hideError(passwordError);
-        }
-    });
-    
-    // Clear error on input
-    emailInput.addEventListener('input', function() {
-        if (emailError.style.display === 'block') {
-            hideError(emailError);
-        }
-    });
-    
-    passwordInput.addEventListener('input', function() {
-        if (passwordError.style.display === 'block') {
-            hideError(passwordError);
-        }
-    });
-    
-    // Form submission validation
-    loginForm.addEventListener('submit', function(e) {
-        const emailValidationError = validateEmail(emailInput.value);
-        const passwordValidationError = validatePassword(passwordInput.value);
-        
-        let hasErrors = false;
-        
-        if (emailValidationError) {
-            showError(emailError, emailValidationError);
-            hasErrors = true;
-        }
-        
-        if (passwordValidationError) {
-            showError(passwordError, passwordValidationError);
-            hasErrors = true;
-        }
-        
-        if (hasErrors) {
-            e.preventDefault(); // Prevent form submission
-        }
-    });
+
+    // LOGIN FORM VALIDATION
+
+    const loginForm = document.getElementById('loginForm');
+
+    if (loginForm) {
+        const emailInput = document.getElementById('email');
+        const passwordInput = document.getElementById('password');
+
+        const emailError = createErrorElement(emailInput);
+        const passwordError = createErrorElement(passwordInput);
+
+        emailInput.addEventListener('blur', function () {
+            const error = validateEmail(this.value);
+            error ? showError(emailError, error) : hideError(emailError);
+        });
+
+        passwordInput.addEventListener('blur', function () {
+            const error = validatePassword(this.value);
+            error ? showError(passwordError, error) : hideError(passwordError);
+        });
+
+        emailInput.addEventListener('input', () => hideError(emailError));
+        passwordInput.addEventListener('input', () => hideError(passwordError));
+
+        loginForm.addEventListener('submit', function (e) {
+            const emailErr = validateEmail(emailInput.value);
+            const passErr = validatePassword(passwordInput.value);
+
+            let hasErrors = false;
+
+            if (emailErr) {
+                showError(emailError, emailErr);
+                hasErrors = true;
+            }
+
+            if (passErr) {
+                showError(passwordError, passErr);
+                hasErrors = true;
+            }
+
+            if (hasErrors) {
+                e.preventDefault();
+            }
+        });
+    }
+
+
+    // SIGNUP FORM VALIDATION
+
+    const signupForm = document.getElementById('signupForm');
+
+    if (signupForm) {
+        const emailInput = document.getElementById('email');
+        const passwordInput = document.getElementById('password');
+
+        const emailError = createErrorElement(emailInput);
+        const passwordError = createErrorElement(passwordInput);
+
+        emailInput.addEventListener('blur', function () {
+            const error = validateEmail(this.value);
+            error ? showError(emailError, error) : hideError(emailError);
+        });
+
+        passwordInput.addEventListener('blur', function () {
+            const error = validatePassword(this.value);
+            error ? showError(passwordError, error) : hideError(passwordError);
+        });
+
+        emailInput.addEventListener('input', () => hideError(emailError));
+        passwordInput.addEventListener('input', () => hideError(passwordError));
+
+        signupForm.addEventListener('submit', function (e) {
+            const emailErr = validateEmail(emailInput.value);
+            const passErr = validatePassword(passwordInput.value);
+
+            let hasErrors = false;
+
+            if (emailErr) {
+                showError(emailError, emailErr);
+                hasErrors = true;
+            }
+
+            if (passErr) {
+                showError(passwordError, passErr);
+                hasErrors = true;
+            }
+
+            if (hasErrors) {
+                e.preventDefault();
+            }
+        });
+    }
+
 });
