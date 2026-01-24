@@ -367,3 +367,292 @@ footer p {
     font-size: 1.05rem;
     font-family: 'Segoe UI', Tahoma, sans-serif;
 }
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+
+
+/* Header */
+.top-bar {
+    background: linear-gradient(135deg, #2b2114, #4b3621);
+    padding: 1.5rem 3rem;
+}
+
+.top-bar h1 {
+    color: white;
+    font-family: Georgia, serif;
+}
+
+/* Main Card */
+.recipe-card {
+    background: white;
+    width: 70%;
+    max-width: 1100px;
+    margin: 3rem auto;
+    padding: 3rem;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+}
+
+/* Actions */
+.actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.outline-btn {
+    background: transparent;
+    border: 1px solid #8b6f47;
+    color: #8b6f47;
+}
+
+.pink-btn {
+    background: #e9bdbd;
+    border: none;
+    color: white;
+}
+
+.dark-btn {
+    background: #2b2114;
+    border: none;
+    color: white;
+}
+
+.actions button {
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+/* Title */
+h2 {
+    text-align: center;
+    font-family: Georgia, serif;
+    color: #8b6f47;
+    margin: 2rem 0;
+    font-size: 2.4rem;
+}
+
+/* Image */
+.recipe-photo {
+    display: block;
+    margin: auto;
+    width: 320px;
+    border-radius: 16px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+}
+
+/* Creator */
+.creator {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 2rem;
+}
+
+.creator img {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+}
+
+/* Sections */
+section {
+    margin-top: 2.5rem;
+}
+
+h3 {
+    color: #8b6f47;
+    margin-bottom: 1rem;
+}
+
+ul, ol {
+    margin-left: 1.5rem;
+    line-height: 1.8;
+}
+
+/* Comments */
+.comments-section textarea {
+    width: 100%;
+    height: 70px;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.comment {
+    background: #faf7f4;
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 8px;
+}
+/* ===== View Recipe Page Fix ===== */
+
+
+/* ===== View Recipe Page Fix ===== */
+
+.view-recipe-page main {
+    display: block;        /* remove flex */
+}
+
+.recipe-card {
+    display: block;
+}
+
+/* Reduce spacing between elements */
+.recipe-card > * {
+    margin-bottom: 1.2rem; /* Reduced from 2rem */
+}
+
+section {
+    border: 1px solid #e8d5c4;
+    padding: 1.2rem; /* Reduced from 1.5rem */
+    border-radius: 12px;
+    background: #faf8f5;
+    margin-top: 1.2rem; /* Reduced from 2.5rem */
+}
+
+/* Action buttons styling */
+.actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px; /* Increased gap slightly */
+    margin-bottom: 1.5rem;
+}
+
+.actions button {
+    padding: 10px 20px; /* Slightly larger */
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    transition: all 0.3s ease;
+    border: none;
+    font-size: 0.95rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Added shadow */
+}
+
+.actions button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover */
+}
+
+.outline-btn {
+    background: transparent;
+    border: 2px solid #8b6f47 !important; /* Added important to override */
+    color: #8b6f47;
+}
+
+.outline-btn:hover {
+    background: #8b6f47;
+    color: white;
+}
+
+.pink-btn {
+    background: linear-gradient(135deg, #e9bdbd 0%, #e9bec2 100%);
+    color: white;
+}
+
+.pink-btn:hover {
+    background: linear-gradient(135deg, #e0a8a8 0%, #e0a9ae 100%);
+}
+
+.dark-btn {
+    background: linear-gradient(135deg, #2b2114 0%, #4d3c30 100%);
+    color: white;
+}
+
+.dark-btn:hover {
+    background: linear-gradient(135deg, #3a2d1c 0%, #5d4935 100%);
+}
+
+/* Comments section improvements */
+/* Comments section improvements */
+.comments-section textarea {
+    width: 100%; /* Full width when button is below */
+    display: block; /* Change from inline-block to block */
+    height: 80px; /* Slightly taller */
+    padding: 12px;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    border: 2px solid #e8d5c4;
+    border-radius: 10px;
+    resize: vertical;
+    font-size: 1rem;
+    margin-bottom: 12px; /* Space between textarea and button */
+}
+
+.comments-section textarea:focus {
+    outline: none;
+    border-color: #d4a5a5;
+    box-shadow: 0 0 0 3px rgba(212, 165, 165, 0.1);
+}
+
+.comments-section button {
+    margin-left: 0; /* Remove left margin */
+    padding: 10px 24px; /* Smaller padding */
+    font-size: 0.95rem; /* Slightly smaller font */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(212, 165, 165, 0.3);
+    transition: all 0.3s ease;
+    display: block; /* Make it a block element */
+    margin-top: 0; /* Remove any top margin */
+    height: auto; /* Let content determine height */
+}
+
+.comments-section button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(212, 165, 165, 0.4);
+}
+
+/* Adjust the wrapper for textarea and button */
+.comments-section {
+    position: relative;
+}
+
+
+/* Reduce spacing in specific sections */
+.creator {
+    margin-top: 1.5rem; /* Reduced from 2rem */
+}
+
+h2 {
+    margin: 1.5rem 0; /* Reduced from 2rem 0 */
+}
+
+/* Reduce line height in lists */
+ul, ol {
+    margin-left: 1.5rem;
+    line-height: 1.6; /* Reduced from 1.8 */
+}
+
+/* Adjust image spacing */
+.recipe-photo {
+    margin: 1.5rem auto; /* Reduced from default */
+}
+
+/* Adjust section headings */
+h3 {
+    color: #8b6f47;
+    margin-bottom: 0.8rem; /* Reduced from 1rem */
+    font-size: 1.3rem;
+}
+
+/* Comment styling */
+.comment {
+    background: #faf7f4;
+    padding: 12px;
+    border-radius: 10px;
+    margin-top: 10px;
+    border-left: 4px solid #e8d5c4;
+}
+
+.comment strong {
+    color: #8b6f47;
+}

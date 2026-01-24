@@ -2,107 +2,48 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>View Recipe</title>
+    <title>View Recipe | SweetCrumb</title>
+    <link rel="stylesheet" href="style.css">
 
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f2f2f2;
-        }
-
-        .container {
-            width: 75%;
-            margin: 30px auto;
-            background-color: #ffffff;
-            padding: 20px;
-            border: 1px solid #000;
-        }
-
-        h2 {
-            text-align: center;
-        }
-
-        .actions {
-            text-align: right;
-            margin-bottom: 15px;
-        }
-
-        .actions button {
-            margin-left: 8px;
-            padding: 5px 10px;
-        }
-
-        .recipe-photo {
-            display: block;
-            margin: 10px auto;
-            width: 280px;
-            border: 1px solid #000;
-        }
-
-        .creator {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .creator img {
-            width: 45px;
-            height: 45px;
-            border: 1px solid #000;
-        }
-
-        .section {
-            margin-top: 20px;
-        }
-
-        ul {
-            margin-left: 20px;
-        }
-
-        .comments {
-            border: 1px solid #000;
-            padding: 10px;
-            margin-top: 10px;
-        }
-
-        textarea {
-            width: 100%;
-            height: 60px;
-        }
-    </style>
 </head>
-<body>
 
-<div class="container">
+<body class="view-recipe-page">
 
-    <!-- Top Buttons -->
+   
+<header class="top-bar">
+    <h1>SweetCrumb</h1>
+</header>
+
+<main class="recipe-card">
+
+    <!-- Action Buttons -->
     <div class="actions">
-        <button onclick="addToFavourites()">Add to favourites</button>
-        <button onclick="likeRecipe()">Like (<span id="likeCount">15</span>)</button>
-        <button>Report recipe</button>
+        <button class="outline-btn">Add to favourites</button>
+        <button class="pink-btn" onclick="likeRecipe()">Like (<span id="likeCount">15</span>)</button>
+        <button class="dark-btn">Report</button>
     </div>
 
-    <!-- Recipe Name -->
+    <!-- Title -->
     <h2>Vanilla Cupcakes</h2>
 
-    <!-- Recipe Photo -->
-    <img src="" alt="Recipe Photo" class="recipe-photo">
+    <!-- Image -->
+    <img src="images/imgtest.png" alt="Recipe Photo" class="recipe-photo">
 
     <!-- Creator -->
-    <div class="section creator">
-        <img src="baker.jpg" alt="Creator Photo">
+    <div class="creator">
+        <img src="images/imgtest.png" alt="Creator">
         <p><strong>Recipe Creator:</strong> Sweet Oven Bakery</p>
     </div>
 
     <!-- Details -->
-    <div class="section">
+    <section>
         <h3>Details</h3>
         <p><strong>Category:</strong> Desserts</p>
         <p><strong>Description:</strong> Classic vanilla cupcakes suitable for all occasions.</p>
-    </div>
+    </section>
 
     <!-- Ingredients -->
-    <div class="section">
+    <section>
         <h3>Ingredients</h3>
         <ul>
             <li>2 cups flour</li>
@@ -110,68 +51,78 @@
             <li>2 eggs</li>
             <li>1 cup milk</li>
         </ul>
-    </div>
+    </section>
 
     <!-- Instructions -->
-    <div class="section">
+    <section>
         <h3>Instructions</h3>
-        <ul>
+        <ol>
             <li>Preheat oven to 180°C.</li>
             <li>Mix all ingredients.</li>
             <li>Pour into cups.</li>
             <li>Bake for 20 minutes.</li>
-        </ul>
-    </div>
+        </ol>
+    </section>
 
     <!-- Video -->
-    <div class="section">
+    <section>
         <h3>Video</h3>
         <a href="https://www.youtube.com/" target="_blank">Watch recipe video</a>
-    </div>
+    </section>
 
     <!-- Comments -->
-    <div class="section">
+    <section class="comments-section">
         <h3>Comments</h3>
 
-        <textarea id="commentInput" placeholder="Write a comment..."></textarea><br><br>
-        <button onclick="addComment()">Add Comment</button>
+        <textarea id="commentInput" placeholder="Write a comment..."></textarea>
+        <button class="pink-btn" onclick="addComment()">Add Comment</button>
 
-        <div class="comments" id="commentsBox">
-            <p><strong>Huda:</strong> Very clear instructions.</p>
-            <p><strong>Ali:</strong> Easy to follow.</p>
+        <div id="commentsBox">
+            <div class="comment">
+                <strong>Huda:</strong> Very clear instructions.
+            </div>
+            <div class="comment">
+                <strong>Ali:</strong> Easy to follow.
+            </div>
         </div>
-    </div>
+    </section>
 
-</div>
+</main>
 
-<script>
-    let likes = 15;
+<script src="script.js"></script>
 
-    function likeRecipe() {
-        likes++;
-        document.getElementById("likeCount").textContent = likes;
-    }
+     <footer>
+        <p>&copy; 2026 SweetCrumb. Baking dreams come true.</p>
 
-    function addToFavourites() {
-        alert("Recipe added to favourites.");
-    }
+        <div class="social-links">
+            <a href="https://instagram.com/sweetcrumb" class="social" aria-label="Instagram">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22"
+                   fill="currentColor" viewBox="0 0 24 24">
+                <path d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zm5 5a5 5 0 100 10 5 5 0 000-10zm6-.8a1 1 0 100 2 1 1 0 000-2z"/>
+              </svg>
+            </a>
 
-    function addComment() {
-        const input = document.getElementById("commentInput");
-        const text = input.value.trim();
+            <a href="https://twitter.com/sweetcrumb" class="social" aria-label="X">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22"
+                   fill="currentColor" viewBox="0 0 24 24">
+                <path d="M19.6 2.3h2.4l-5.2 6 6.1 8h-4.8l-3.6-4.8-4.1 4.8H3.8l5.6-6.4L3.6 2.3H8l3.2 4.4z"/>
+              </svg>
+            </a>
 
-        if (text === "") {
-            alert("Please enter a comment.");
-            return;
-        }
+            <a href="mailto:SweetCrumb@gmail.com" class="social" aria-label="Email">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22"
+                   fill="currentColor" viewBox="0 0 24 24">
+                <path d="M4 6h16a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2V8a2 2 0 012-2zm0 2l8 5 8-5"/>
+              </svg>
+            </a>
 
-        const comment = document.createElement("p");
-        comment.innerHTML = "<strong>You:</strong> " + text;
-
-        document.getElementById("commentsBox").prepend(comment);
-        input.value = "";
-    }
-</script>
-
+            <a href="tel:+966550886681" class="social" aria-label="Phone">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22"
+                   fill="currentColor" viewBox="0 0 24 24">
+                <path d="M6.6 10.8a15 15 0 006.6 6.6l2.2-2.2a1 1 0 011.1-.2c1.2.5 2.5.8 3.9.8a1 1 0 011 1V20a1 1 0 01-1 1C12.4 21 3 11.6 3 1a1 1 0 011-1h3.2a1 1 0 011 1c0 1.4.3 2.7.8 3.9.1.4 0 .8-.2 1.1l-2.2 2.2z"/>
+              </svg>
+            </a>
+        </div>
+    </footer>
 </body>
 </html>

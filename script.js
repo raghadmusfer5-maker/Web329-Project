@@ -152,3 +152,32 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
 });
+
+
+
+
+// view recipe page js code
+
+let likes = 15;
+
+function likeRecipe() {
+    likes++;
+    document.getElementById("likeCount").textContent = likes;
+}
+
+function addComment() {
+    const input = document.getElementById("commentInput");
+    const text = input.value.trim();
+
+    if (text === "") {
+        alert("Please write a comment first.");
+        return;
+    }
+
+    const commentDiv = document.createElement("div");
+    commentDiv.className = "comment";
+    commentDiv.innerHTML = "<strong>You:</strong> " + text;
+
+    document.getElementById("commentsBox").prepend(commentDiv);
+    input.value = "";
+}
