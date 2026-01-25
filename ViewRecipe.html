@@ -10,18 +10,53 @@
 <body class="view-recipe-page">
 
    
-<header class="top-bar">
-    <h1>SweetCrumb</h1>
+<header>
+    <div class="logo-container">
+        <img src="images/logotest.png" class="logo-img" alt="SweetCrumb">
+        <span class="logo">SweetCrumb</span>
+    </div>
 </header>
 
 <main class="recipe-card">
 
     <!-- Action Buttons -->
-    <div class="actions">
+     <div class="actions">
+
+  <!-- Save / Favourite -->
+  <button class="outline-btn" aria-label="Save to favourites">
+    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22"
+         fill="currentColor" viewBox="0 0 24 24">
+      <!-- Bookmark icon -->
+      <path d="M6 2h12a1 1 0 011 1v19l-7-4-7 4V3a1 1 0 011-1z"/>
+    </svg>
+  </button>
+
+  <!-- Like -->
+  <button class="pink-btn" onclick="likeRecipe()" aria-label="Like">
+    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22"
+         fill="currentColor" viewBox="0 0 24 24">
+      <!-- Heart icon -->
+      <path d="M12 21s-7.5-4.6-10-9.3C-0.5 6.5 4 2 8.5 5.5L12 9l3.5-3.5C20 2 24.5 6.5 22 11.7 19.5 16.4 12 21 12 21z"/>
+    </svg>
+    <span id="likeCount">15</span>
+  </button>
+
+  <!-- Report -->
+  <button class="dark-btn" aria-label="Report">
+    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22"
+         fill="currentColor" viewBox="0 0 24 24">
+      <!-- Flag icon -->
+      <path d="M4 2v20h2v-7h12l-2-4 2-4H6V2z"/>
+    </svg>
+  </button>
+
+</div>
+
+    <!--<div class="actions">
         <button class="outline-btn">Add to favourites</button>
         <button class="pink-btn" onclick="likeRecipe()">Like (<span id="likeCount">15</span>)</button>
         <button class="dark-btn">Report</button>
-    </div>
+    </div> -->
 
     <!-- Title -->
     <h2>Vanilla Cupcakes</h2>

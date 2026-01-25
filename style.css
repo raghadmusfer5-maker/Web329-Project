@@ -555,10 +555,20 @@ section {
     color: white;
 }
 
+/* Fix heart + number vertical alignment */
 .pink-btn {
-    background: linear-gradient(135deg, #e9bdbd 0%, #e9bec2 100%);
-    color: white;
+    display: flex;
+    align-items: center;   /* 🔥 this is the key */
+    gap: 6px;
 }
+
+/* Optional: slightly fine-tune the number */
+.pink-btn span {
+    line-height: 1;
+    position: relative;
+    top: 1px;  /* tiny nudge if needed */
+}
+
 
 .pink-btn:hover {
     background: linear-gradient(135deg, #e0a8a8 0%, #e0a9ae 100%);
