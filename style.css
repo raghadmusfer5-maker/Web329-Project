@@ -643,9 +643,7 @@ ul, ol {
 }
 
 /* Adjust image spacing */
-.recipe-photo {
-    margin: 1.5rem auto; /* Reduced from default */
-}
+
 
 /* Adjust section headings */
 h3 {
@@ -771,6 +769,7 @@ td {
     color: #6d5d4b;
 }
 
+
 tbody tr:hover {
     background: #faf7f4;
 }
@@ -782,6 +781,7 @@ table .recipe-photo {
     object-fit: cover;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    margin: 1.5rem 2rem 1.5rem 0;
 }
 
 /* Creator cell */
