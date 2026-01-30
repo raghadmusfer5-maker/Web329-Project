@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Add Recipe</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header>
+    <div class="logo-container">
+        <img src="logotest.png" class="logo-img" alt="SweetCrumb">
+        <span class="logo">SweetCrumb</span>
+    </div>
+</header>
+   <div class="page-head">
+  <h2>Add New Recipe</h2>
+  <p class="small"> Here you can add a new recipe. All fields are required except the video.</p>
+</div>
+<div class="page">
+  <form id="addForm" action="my-recipes.html">
+
+    <label>Recipe Name *</label>
+    <input type="text" id="name" required>
+
+  <label>Category *</label>
+<select id="category" required>
+  <option value="" selected disabled>Choose</option>
+  <option value="Cake">Cake</option>
+  <option value="Dessert">Dessert</option>
+  <option value="Bakery">Bakery</option>
+</select>
+
+    <label>Description *</label>
+    <textarea id="description" rows="4" placeholder="Describe your recipe in a few sentences." required></textarea>
+
+    <label>Photo *</label>
+    <input type="file" id="photo" accept="image/*" required>
+
+    <div class="box">
+      <h3>Ingredients *</h3>
+      <div id="ingredientsContainer"></div>
+      <button type="button" class="btn btn-brown" id="addIngredientBtn">+ Add Ingredient</button>
+      <div class="smaller">Each ingredient should have name + quantity.</div>
+    </div>
+
+    <div class="box">
+      <h3>Instructions *</h3>
+      <div id="stepsContainer"></div>
+      <button type="button" class="btn btn-brown" id="addStepBtn">+ Add Step</button>
+      <div class="smaller">Add as many steps as you need.</div>
+    </div>
+
+    <div class="box">
+      <h3>Video (Optional)</h3>
+      <label>Upload Video</label>
+      <input type="file" id="videoFile" accept="video/*">
+
+      <label>Video URL</label>
+      <input type="url" id="videoUrl" placeholder="https://...">
+    </div>
+
+    <div class="inline">
+      <button class="btn btn-primary" type="submit">Save Recipe</button>
+      <button class="btn btn-brown" type="button" id="cancelBtn">Cancel</button>
+    </div>
+
+  </form>
+</div>
+    <footer>
+        <p>&copy; 2026 SweetCrumb. Baking dreams come true.</p>
+
+        <div class="social-links">
+            <a href="https://instagram.com/sweetcrumb" class="social" aria-label="Instagram">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22"
+                   fill="currentColor" viewBox="0 0 24 24">
+                <path d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zm5 5a5 5 0 100 10 5 5 0 000-10zm6-.8a1 1 0 100 2 1 1 0 000-2z"/>
+              </svg>
+            </a>
+
+            <a href="https://twitter.com/sweetcrumb" class="social" aria-label="X">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22"
+                   fill="currentColor" viewBox="0 0 24 24">
+                <path d="M19.6 2.3h2.4l-5.2 6 6.1 8h-4.8l-3.6-4.8-4.1 4.8H3.8l5.6-6.4L3.6 2.3H8l3.2 4.4z"/>
+              </svg>
+            </a>
+
+            <a href="mailto:SweetCrumb@gmail.com" class="social" aria-label="Email">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22"
+                   fill="currentColor" viewBox="0 0 24 24">
+                <path d="M4 6h16a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2V8a2 2 0 012-2zm0 2l8 5 8-5"/>
+              </svg>
+            </a>
+
+            <a href="tel:+966550886681" class="social" aria-label="Phone">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22"
+                   fill="currentColor" viewBox="0 0 24 24">
+                <path d="M6.6 10.8a15 15 0 006.6 6.6l2.2-2.2a1 1 0 011.1-.2c1.2.5 2.5.8 3.9.8a1 1 0 011 1V20a1 1 0 01-1 1C12.4 21 3 11.6 3 1a1 1 0 011-1h3.2a1 1 0 011 1c0 1.4.3 2.7.8 3.9.1.4 0 .8-.2 1.1l-2.2 2.2z"/>
+              </svg>
+            </a>
+        </div>
+    </footer>
+<script>
+  // to get the containers
+  var ingredientsContainer = document.getElementById("ingredientsContainer");
+  var stepsContainer = document.getElementById("stepsContainer");
+  
+  // Function to update remove buttons visibility (first step is a must!)
+  function refreshRemove(container) {
+    var rows = container.children;
+    for (var i = 0; i < rows.length; i++) {
+      var removeBtn = rows[i].querySelector(".remove-btn"); //to target the button since we have the whole row now
+      if (removeBtn) {
+        if (i === 0) {
+          removeBtn.style.display = "none";
+        } else {
+          removeBtn.style.display = "inline-block";
+        }
+      }
+    }
+  }
+  // Function to add ingredient row
+  function addIngredient(name, qty) {
+    if (name === undefined) name = "";
+    if (qty === undefined) qty = "";
+    var row = document.createElement("div");
+    row.className = "form-row";
+    
+    var nameInput = document.createElement("input");
+    nameInput.type = "text";
+    nameInput.placeholder = "Ingredient name";
+    nameInput.value = name;
+    nameInput.required = true;
+    
+    var qtyInput = document.createElement("input");
+    qtyInput.type = "text";
+    qtyInput.placeholder = "Quantity (e.g., 2 cups)";
+    qtyInput.value = qty;
+    qtyInput.required = true;
+    
+    var removeBtn = document.createElement("button");
+    removeBtn.type = "button";
+    removeBtn.className = "remove-btn";
+    removeBtn.textContent = "Remove";
+    
+    // Add click event to remove button
+    removeBtn.onclick = function() {
+      row.remove();
+    };
+    
+    // Add elements to row
+    row.appendChild(nameInput);
+    row.appendChild(qtyInput);
+    row.appendChild(removeBtn);
+    
+    // Add row to container
+    ingredientsContainer.appendChild(row);
+    
+    // so the remove buttons doesnt appear first row
+    refreshRemove(ingredientsContainer);
+  }
+  
+  // Function to add step row
+  function addStep(text) {
+    if (text === undefined) text = "";
+    
+    var row = document.createElement("div");
+    row.className = "form-row onecol";
+    
+    var textInput = document.createElement("input");
+    textInput.type = "text";
+    textInput.placeholder = "Step (e.g., Mix ingredients...)";
+    textInput.value = text;
+    textInput.required = true;
+    
+    var removeBtn = document.createElement("button");
+    removeBtn.type = "button";
+    removeBtn.className = "remove-btn";
+    removeBtn.textContent = "Remove";
+    
+    // Add click event to remove button
+    removeBtn.onclick = function() {
+      row.remove();
+    };
+    
+    // Add elements to row
+    row.appendChild(textInput);
+    row.appendChild(removeBtn);
+    
+    // Add row to container
+    stepsContainer.appendChild(row);
+    
+    // so the remove buttons doesnt appear first row
+    refreshRemove(stepsContainer);
+  }
+  
+  // Add initial required rows
+  addIngredient();
+  addStep();
+  
+  // Set up button events
+  document.getElementById("addIngredientBtn").onclick = function() {
+    addIngredient();
+  };
+  
+  document.getElementById("addStepBtn").onclick = function() {
+    addStep();
+  };
+  
+  document.getElementById("cancelBtn").onclick = function() {
+    window.location.href = "my-recipes.html";
+  };
+</script>
+</body>
+</html>
