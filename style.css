@@ -698,9 +698,11 @@ h3 {
 
 /* Welcome text */
 .welcome {
-    font-size: 1.4rem;
-    color: #8b6f47;
-    font-weight: 500;
+    font-size: 2rem;
+    color: #e9bdbd;
+    font-weight: 600;
+   
+   
 }
 
 /* User info grid */
