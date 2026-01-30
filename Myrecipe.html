@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>My Recipes</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="images/logo.png" alt="SweetCrumb Logo" class="logo-img">
+            <span class="logo">SweetCrumb</span>
+        </div>
+    </header>
+
+<div class="container">
+
+  <div class="card" style="display:flex; justify-content:space-between;">
+    <div class="section-title">My Recipes</div>
+    <a href="add.html" class="btn">Add New Recipe</a>
+  </div>
+
+  <div class="card">
+    <table>
+      <thead>
+        <tr>
+          <th>Recipe</th>
+          <th>Ingredients</th>
+          <th>Instructions</th>
+          <th>Video</th>
+          <th>Likes</th>
+          <th>Edit</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <!-- Lactose Free -->
+        <tr>
+          <td>
+            <a href="ViewRecipe.html">
+              <img src="cake1.jpg" class="recipe-photo"><br>
+              Lactose Free Vanilla Cupcakes
+            </a>
+          </td>
+          <td>
+            <ul>
+            <li>2 cups flour</li>
+            <li>1 cup sugar</li>
+            <li>2 eggs</li>
+            <li>1 cup milk</li>
+            </ul>
+          </td>
+          <td>
+            <ol>
+            <li>Preheat oven to 180°C.</li>
+            <li>Mix all ingredients.</li>
+            <li>Pour into cups.</li>
+            <li>Bake for 20 minutes.</li>
+            </ol>
+          </td>
+          <td><a href="https://www.youtube.com/" target="_blank">Watch recipe video</a></td>
+          <td>40</td>
+          <td><a href="edit.html">Edit</a></td>
+          <td><a href="#">Delete</a></td>
+        </tr>
+
+        <!-- Sugar Free -->
+        <tr>
+          <td>
+            <a href="view.html">
+              <img src="cake2.jpg" class="recipe-photo"><br>
+              Sugar Free Brownies
+            </a>
+          </td>
+          <td>
+            <ul>
+              <li>Oat flour – 1 cup</li>
+              <li>Honey – 2 tbsp</li>
+            </ul>
+          </td>
+          <td>
+            <ul>
+              <li>Mix</li>
+              <li>Bake</li>
+            </ul>
+          </td>
+          <td>
+            <a href="https://youtube.com">Video</a>
+          </td>
+          <td>25</td>
+          <td><a href="edit.html">Edit</a></td>
+          <td><a href="#">Delete</a></td>
+        </tr>
+
+        <!-- Healthy Bakery -->
+        <tr>
+          <td>
+            <a href="view.html">
+              <img src="cake3.jpg" class="recipe-photo"><br>
+              Healthy Oat Muffins
+            </a>
+          </td>
+          <td>
+            <ul>
+              <li>Oats – 1 cup</li>
+              <li>Banana – 1</li>
+            </ul>
+          </td>
+          <td>
+            <ul>
+              <li>Mash banana</li>
+              <li>Bake 20 min</li>
+            </ul>
+          </td>
+          <td>No video for recipe</td>
+          <td>20</td>
+          <td><a href="edit.html">Edit</a></td>
+          <td><a href="#">Delete</a></td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+
+</div>
+ <footer>
+        <p>&copy; 2026 SweetCrumb. Baking dreams come true.</p>
+
+        <div class="social-links">
+            <a href="https://instagram.com/sweetcrumb" class="social" aria-label="Instagram">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22"
+                   fill="currentColor" viewBox="0 0 24 24">
+                <path d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zm5 5a5 5 0 100 10 5 5 0 000-10zm6-.8a1 1 0 100 2 1 1 0 000-2z"/>
+              </svg>
+            </a>
+
+            <a href="https://twitter.com/sweetcrumb" class="social" aria-label="X">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22"
+                   fill="currentColor" viewBox="0 0 24 24">
+                <path d="M19.6 2.3h2.4l-5.2 6 6.1 8h-4.8l-3.6-4.8-4.1 4.8H3.8l5.6-6.4L3.6 2.3H8l3.2 4.4z"/>
+              </svg>
+            </a>
+
+            <a href="mailto:SweetCrumb@gmail.com" class="social" aria-label="Email">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22"
+                   fill="currentColor" viewBox="0 0 24 24">
+                <path d="M4 6h16a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2V8a2 2 0 012-2zm0 2l8 5 8-5"/>
+              </svg>
+            </a>
+
+            <a href="tel:+966550886681" class="social" aria-label="Phone">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22"
+                   fill="currentColor" viewBox="0 0 24 24">
+                <path d="M6.6 10.8a15 15 0 006.6 6.6l2.2-2.2a1 1 0 011.1-.2c1.2.5 2.5.8 3.9.8a1 1 0 011 1V20a1 1 0 01-1 1C12.4 21 3 11.6 3 1a1 1 0 011-1h3.2a1 1 0 011 1c0 1.4.3 2.7.8 3.9.1.4 0 .8-.2 1.1l-2.2 2.2z"/>
+              </svg>
+            </a>
+        </div>
+    </footer>
+</body>
+</html>
