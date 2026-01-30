@@ -775,14 +775,16 @@ tbody tr:hover {
 }
 
 /* Recipe images inside tables */
-table .recipe-photo {
+table .recipe-photo,
+table a.img-recipe-photo {
     width: 70px;
     height: 70px;
     object-fit: cover;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-    margin: 1.5rem 2rem 1.5rem 0;
+    margin: 1.5rem 0 1.5rem 2.3rem;
 }
+
 
 /* Creator cell */
 .creator {
