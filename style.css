@@ -156,6 +156,7 @@ main {
     background: linear-gradient(135deg, #2b2114 0%, #4d3c30 100%);
     color: #fff;
     box-shadow: 0 4px 15px rgba(139, 111, 71, 0.25);
+    padding: 1rem;
 }
 
 .btn-brown:hover {
