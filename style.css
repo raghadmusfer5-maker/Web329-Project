@@ -908,3 +908,76 @@ footer p {
     }
 }
 
+/* ===== FORCE ADMIN TABLE FIX ===== */
+
+.admin-table table {
+  display: table ;
+  width: 100% ;
+  border-collapse: collapse ;
+}
+
+.admin-table thead {
+  display: table-header-group ;
+}
+
+.admin-table tbody {
+  display: table-row-group ;
+}
+
+.admin-table tr {
+  display: table-row ;
+}
+
+.admin-table th,
+.admin-table td {
+  display: table-cell ;
+  vertical-align: middle ;
+  padding: 16px ;
+}
+
+/* ===== Creator column ===== */
+.admin-table td.creator {
+  display: table-cell ;
+}
+
+
+
+/* نخلي الصورة والاسم جنب بعض */
+.admin-table td.creator {
+  white-space: nowrap ;
+}
+
+/* ===== Images sizes ===== */
+.admin-table .recipe-photo {
+  width: 70px ;
+  height: 70px ;
+  object-fit: cover ;
+}
+
+.admin-table .creator-photo {
+  width: 56px ;
+  height: 56px;
+  border-radius: 50% ;
+  object-fit: cover ;
+}
+
+/* ===== Action column ===== */
+.admin-table td:last-child form {
+  display: block ;
+  text-align: center ;
+}
+
+.admin-table td:last-child label {
+  display: block ;
+  margin-bottom: 10px ;
+}
+
+/* ===== Submit button ===== */
+.admin-table .btn-primary {
+  width: 140px ;
+  padding: 10px 0 ;
+  font-size: 15px ;
+}
+
+
+

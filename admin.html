@@ -96,89 +96,151 @@
 
 
 <main>
-    <!-- Admin Card -->
-    <div class="recipe-card">
+   <div class="container">
 
-        <!-- Logout -->
-        <div class="actions" >
-		
-           <a href="Home.html" class="log-out">log Out</a>
-        </div>
-<h1>Welcome sara</h1>
-        <!-- Admin Information -->
-        <section>
-            <h3>My Information</h3>
-            <p><strong>Name:</strong> Admin User</p>
-            <p><strong>Email:</strong> admin@demo.com</p>
-        </section>
+  <!-- Welcome -->
+  <div class="card" style="display:flex; justify-content:space-between; align-items:center;">
+    <div class="welcome">Welcome Leen! </div>
+    <a href="login.html" class="link">Sign out</a>
+  </div>
 
-        <!-- Reported Recipes -->
-        <section>
-            <h3>Reported Recipes</h3>
+  <!-- User Information -->
+   <div class="card">
+    <div>
+      <div class="section-title">My Information</div>
 
-            <table style="width:100%; border-collapse: collapse;">
-                <thead>
-                    <tr>
-                        <th>Recipe Name</th>
-                        <th>Recipe Creator</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
+      <div class="info-row">
+        <div class="info-label">Full Name:</div>
+        <div>Leen Ahmed</div>
+      </div>
 
-                <tbody>
-                    <tr>
-                        <td>
-                            <a href="ViewRecipe.html" class="signup-link">
-                                Low-Carb Strawberry Cheesecake
-                            </a>
-                        </td>
+      <div class="info-row">
+        <div class="info-label">Email:</div>
+        <div>leen@email.com</div>
+      </div>
 
-                        <td>
-                            <div class="creator">
-                                <img src="images/imgtest.png" alt="Creator">
-                                <span>Sarah Ahmed</span>
-                            </div>
-                        </td>
 
-                        <td>
-                            <form>
-                                <label>
-                                    <input type="radio" name="action1">
-                                    Block User
-                                </label><br><br>
+      
+    </div>
+  </div>
 
-                                <label>
-                                    <input type="radio" name="action1">
-                                    Dismiss Report
-                                </label><br><br>
+ 
 
-                                <button class="pink-btn">Submit</button>
-                            </form>
-                        </td>
-                    </tr>
+   <!-- Reported Recipes -->
+  <div class="card admin-table">
+    <div class="section-title">Reported Recipes</div>
 
-                    <tr>
-                        <td>...</td>
-                        <td>...</td>
-                        <td>...</td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
+   
+    <table>
+      <thead>
+        <tr>
+          <th>Recipe Name</th>
+          <th>Recipe Creator</th>
+          <th>Action</th>
+        
+        </tr>
+      </thead>
 
-        <!-- Blocked Users -->
-        <section>
-            <h3>Blocked Users List</h3>
+      <tbody>
+        <tr>
+          <td><a href="view.html">Lactose Free Chocolate Cake</a> <img src="images/ch cake.jpg" class="recipe-photo"></td>
+         
+          <td class="creator">
+            <img src="images/maya.jpg" class="creator-photo">
+            Maya khalid
+          </td>
+   <td>
+    <form method="POST" action="#">
+        <label style="display: flex; align-items: center; gap: 10px;">
+            <input type="radio" name="action1" value="block">
+            Block User
+        </label>
+        <br>
 
-            <table style="width:60%; border-collapse: collapse;">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Email Address</th>
-                    </tr>
-                </thead>
+        <label style="display: flex; align-items: center; gap: 10px;">
+            <input type="radio" name="action1" value="dismiss">
+            Dismiss Report
+        </label>
+        <br><br>
 
-                <tbody>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</td>
+
+
+        </tr>
+
+        <tr>
+          <td><a href="view.html">Pumpkin pie</a> <img src="images/pie.jpg" class="recipe-photo"></td>
+          <td class="creator">
+            <img src="images/fahad.jpg" class="creator-photo">
+            Fahad Alotaibi
+          </td>
+          <td>
+    <form method="POST" action="#">
+        <label style="display: flex; align-items: center; gap: 10px;">
+            <input type="radio" name="action1" value="block">
+            Block User
+        </label>
+        <br>
+
+        <label style="display: flex; align-items: center; gap: 10px;">
+            <input type="radio" name="action1" value="dismiss">
+            Dismiss Report
+        </label>
+        <br><br>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</td>
+
+
+        </tr>
+
+        <tr>
+          <td><a href="view.html">Birthday cookie</a> <img src="images/cookie.jpg" class="recipe-photo"></td>
+          <td class="creator">
+            <img src="images/raneem.jpg" class="creator-photo">
+            Raneem Saleh
+          </td>
+           <td>
+    <form method="POST" action="#">
+        <label style="display: flex; align-items: center; gap: 10px;">
+            <input type="radio" name="action1" value="block">
+            Block User
+        </label>
+        <br>
+
+        <label style="display: flex; align-items: center; gap: 10px;">
+            <input type="radio" name="action1" value="dismiss">
+            Dismiss Report
+        </label>
+        <br><br>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</td>
+
+
+       
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+ <!-- Blocked Users -->
+  <div class="card">
+    <div class="section-title">Blocked Users List </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Email Address</th>
+        </tr>
+      </thead>
+
+     <tbody>
                     <tr>
                         <td>John Smith</td>
                         <td>john@mail.com</td>
@@ -189,11 +251,10 @@
                         <td>...</td>
                     </tr>
                 </tbody>
-            </table>
-        </section>
+    </table>
+  </div>
 
-    </div>
-
+</div>
 </main>
 <footer>
         <p>&copy; 2026 SweetCrumb. Baking dreams come true.</p>
