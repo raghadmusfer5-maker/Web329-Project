@@ -979,4 +979,10 @@ footer p {
 }
 
 
+.comment-time {
+    font-size: 0.8rem;
+    color: #9b8b7a;
+    margin-top: 4px;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+}
 
