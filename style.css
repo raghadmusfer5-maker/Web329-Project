@@ -986,3 +986,11 @@ footer p {
     font-family: 'Segoe UI', Tahoma, sans-serif;
 }
 
+/* View Recipe - h3 styling */
+.view-recipe-page h3 {
+    color: #8b6f47;
+    font-weight: 400;
+    font-size: 1.3rem;
+    margin-bottom: 0.8rem;
+    font-family: Georgia, 'Times New Roman', serif;
+}
