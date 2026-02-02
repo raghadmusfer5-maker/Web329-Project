@@ -994,3 +994,26 @@ footer p {
     margin-bottom: 0.8rem;
     font-family: Georgia, 'Times New Roman', serif;
 }
+
+/* BREADCRUMB SPACING */
+.breadcrumb {
+    margin-top: 1.2rem;      /* push DOWN away from header */
+    margin-left: 1rem;       /* push RIGHT away from left edge */
+}
+
+/* RESPONSIVE BREADCRUMB */
+@media (max-width: 768px) {
+    .breadcrumb {
+        padding: 0.8rem 1.5rem;
+        margin-top: 1.5rem;  /* extra space on mobile */
+        margin-left: 1.2rem; /* extra left spacing on mobile */
+    }
+    
+    .breadcrumb-container {
+        font-size: 0.85rem;
+    }
+    
+    .breadcrumb-separator {
+        margin: 0 0.4rem;
+    }
+}
