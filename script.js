@@ -130,27 +130,55 @@ document.addEventListener('DOMContentLoaded', function () {
         passwordInput.addEventListener('input', () => hideError(passwordError));
 
         signupForm.addEventListener('submit', function (e) {
-            const emailErr = validateEmail(emailInput.value);
-            const passErr = validatePassword(passwordInput.value);
+    e.preventDefault(); // يمنع الإرسال العادي
 
-            let hasErrors = false;
+    const emailErr = validateEmail(emailInput.value);
+    const passErr = validatePassword(passwordInput.value);
 
-            if (emailErr) {
-                showError(emailError, emailErr);
-                hasErrors = true;
-            }
+    let hasErrors = false;
 
-            if (passErr) {
-                showError(passwordError, passErr);
-                hasErrors = true;
-            }
-
-            if (hasErrors) {
-                e.preventDefault();
-            }
-        });
+    if (emailErr) {
+        showError(emailError, emailErr);
+        hasErrors = true;
     }
 
+    if (passErr) {
+        showError(passwordError, passErr);
+        hasErrors = true;
+    }
+
+    if (hasErrors) return;
+
+    // === SAVE USER DATA ONCE ===
+    const firstName = document.getElementById('firstName').value.trim();
+    const lastName  = document.getElementById('lastName').value.trim();
+    const email     = document.getElementById('email').value.trim();
+    const imageInput = document.getElementById('profileImage');
+
+    const DEFAULT_IMAGE = "images/default-user.png";
+
+    if (imageInput.files && imageInput.files[0]) {
+        const reader = new FileReader();
+        reader.onload = function () {
+            saveUser(reader.result);
+            window.location.href = "user.html";
+        };
+        reader.readAsDataURL(imageInput.files[0]);
+    } else {
+        saveUser(DEFAULT_IMAGE);
+        window.location.href = "user.html";
+    }
+
+    function saveUser(imageSrc) {
+        const userData = {
+            fullName: firstName + " " + lastName,
+            email: email,
+            image: imageSrc
+        };
+        localStorage.setItem("currentUser", JSON.stringify(userData));
+    }
+});
+    }
 });
 
 
@@ -202,3 +230,25 @@ function formatTime(date) {
         return date.toLocaleDateString();
     }
 }
+
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const user = JSON.parse(localStorage.getItem("currentUser"));
+
+    // Run ONLY on user page
+    const avatar = document.getElementById("userAvatar");
+    const welcome = document.querySelector(".welcome");
+
+    if (!user || !avatar || !welcome) return;
+
+    welcome.textContent = "Welcome " + user.fullName + "!";
+    avatar.src = user.image;
+
+    const infoRows = document.querySelectorAll(".info-row div:last-child");
+    if (infoRows.length >= 2) {
+        infoRows[0].textContent = user.fullName;
+        infoRows[1].textContent = user.email;
+    }
+});
