@@ -155,7 +155,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const email     = document.getElementById('email').value.trim();
     const imageInput = document.getElementById('profileImage');
 
-    const DEFAULT_IMAGE = "images/default-user.png";
+    const DEFAULT_IMAGE = "images/default-user.jpg";
 
     if (imageInput.files && imageInput.files[0]) {
         const reader = new FileReader();
