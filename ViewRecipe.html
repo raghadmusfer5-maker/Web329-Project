@@ -95,6 +95,23 @@
 </svg>
 </header>
 
+
+ <!-- Breadcrumb Navigation -->
+    <nav class="breadcrumb">
+        <div class="breadcrumb-container">
+            <span class="breadcrumb-item">
+                <a href="Home.html">Home</a>
+            </span>
+            <span class="breadcrumb-separator">›</span>
+            <span class="breadcrumb-item">
+                <a href="user.html">User Dashboard</a>
+            </span>
+            <span class="breadcrumb-separator">›</span>
+            <span class="breadcrumb-item active">View Recipe</span>
+        </div>
+    </nav>
+
+    
 <main class="page">
 
     <!-- Action Buttons -->
@@ -191,13 +208,19 @@
         <button class="btn btn-primary" onclick="addComment()">Add Comment</button>
 
         <div id="commentsBox">
-            <div class="comment">
-                <strong>Huda:</strong> Very clear instructions.
-            </div>
-            <div class="comment">
-                <strong>Ali:</strong> Easy to follow.
-            </div>
-        </div>
+
+    <div class="comment">
+        <strong>Huda:</strong> Very clear instructions.
+        <div class="comment-time">25 Jan 2026 • 10:30 AM</div>
+    </div>
+
+    <div class="comment">
+        <strong>Ali:</strong> Easy to follow.
+        <div class="comment-time">20 Jan 2026 • 6:15 PM</div>
+    </div>
+
+</div>
+
     </section>
 
 </main>

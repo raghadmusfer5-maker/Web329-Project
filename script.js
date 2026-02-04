@@ -176,8 +176,30 @@ function addComment() {
 
     const commentDiv = document.createElement("div");
     commentDiv.className = "comment";
-    commentDiv.innerHTML = "<strong>You:</strong> " + text;
+
+    commentDiv.innerHTML = `
+        <strong>You:</strong> ${text}
+        <div class="comment-time">Now</div>
+    `;
 
     document.getElementById("commentsBox").prepend(commentDiv);
     input.value = "";
 }
+
+
+function formatTime(date) {
+    const now = new Date();
+    const diffMs = now - date;
+    const diffMinutes = Math.floor(diffMs / 60000);
+
+    if (diffMinutes < 1) {
+        return "Just now";
+    } else if (diffMinutes < 60) {
+        return diffMinutes + " minutes ago";
+    } else if (date.toDateString() === now.toDateString()) {
+        return "Today";
+    } else {
+        return date.toLocaleDateString();
+    }
+}
+
