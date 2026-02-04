@@ -202,3 +202,4 @@ function formatTime(date) {
         return date.toLocaleDateString();
     }
 }
+
